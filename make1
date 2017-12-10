@@ -1,0 +1,3 @@
+#!/bin/bash
+docker build -f Dockerfile.builder -t gilgameshskytrooper/prometheusbuilder:v$1 .
+docker run -ti --rm gilgameshskytrooper/prometheusbuilder:v$1
