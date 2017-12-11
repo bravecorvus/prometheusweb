@@ -1,0 +1,3 @@
+#!/bin/bash
+docker container cp $(docker ps -l --format "\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\nPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n" | grep -i NAMES | cut -f2):/go/src/github.com/gilgameshskytrooper/prometheus/email/email email
+rm -f $(docker ps -l --format $FORMAT | awk 'NR==2{print $2}')
