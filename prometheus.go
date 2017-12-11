@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"github.com/gilgameshskytrooper/prometheusweb/gpio"
+	"github.com/gilgameshskytrooper/prometheusweb/structs"
 	"github.com/gilgameshskytrooper/prometheusweb/nixie"
 	"github.com/gilgameshskytrooper/prometheusweb/utils"
 	"github.com/jacobsa/go-serial/serial"
