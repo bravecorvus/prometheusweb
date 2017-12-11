@@ -146,12 +146,12 @@ func init() {
 	}
 
 	Soundname = strings.TrimSpace(files[0].Name())
-	fmt.Println("YOLO")
 	d1 := []byte(Soundname)
 	errrrrrrrrr := ioutil.WriteFile(utils.Pwd()+"/public/json/trackinfo", d1, 0644)
 	if errrrrrrrrr != nil {
 		fmt.Println(errrrrrrrrr)
 	}
+	fmt.Println("YOLO")
 	Email = utils.GetEmail()
 	EnableEmail = utils.GetEnableEmail()
 	CustomSoundCard = utils.UseCustomSoundCard()
