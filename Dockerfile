@@ -5,4 +5,4 @@ COPY prometheusweb .
 COPY email .
 COPY public .
 EXPOSE 8080
-ENTRYPOINT ["prometheusweb"]
+ENTRYPOINT ["/prometheusweb"]
