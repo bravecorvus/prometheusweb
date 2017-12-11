@@ -133,7 +133,6 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 // 4. Get the email of user to be used in the CheckIPChange() function
 // 5. Get the persistent data of whether or not the user wants Prometheus to send emails when the IP changes. (Note, this is probably alot easier done through a dynamic DNS service which runs a background program to constanty check the IP of the Pi, updates a domain name server, and then you can access that as a link such as myclockname.ddns.net:3000
 func init() {
-	fmt.Println("YOLO")
 	//Save the JSON alarms configurations into the mold
 	jsondata := structs.GetRawJson(utils.Pwd() + "/public/json/alarms.json")
 	Alarm1.InitializeAlarms(jsondata, 0)
@@ -141,6 +140,7 @@ func init() {
 	Alarm3.InitializeAlarms(jsondata, 2)
 	Alarm4.InitializeAlarms(jsondata, 3)
 
+	fmt.Println("YOLO")
 	files, errdir := ioutil.ReadDir(utils.Pwd()+"/public/assets")
 	if errdir != nil {
 		log.Println(errdir)
