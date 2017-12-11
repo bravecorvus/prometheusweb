@@ -151,7 +151,6 @@ func init() {
 	if errrrrrrrrr != nil {
 		fmt.Println(errrrrrrrrr)
 	}
-	fmt.Println("YOLO")
 	Email = utils.GetEmail()
 	EnableEmail = utils.GetEnableEmail()
 	CustomSoundCard = utils.UseCustomSoundCard()
@@ -167,6 +166,7 @@ func main() {
 	// if no previous process exists, KillShairportSync() automatically handles this.
 	utils.KillShairportSync()
 	shairportInstalled = utils.CheckShairportSyncInstalled()
+	fmt.Println("YOLO")
 	if shairportInstalled {
 		fmt.Println("shairport-sync", "-d")
 	}
