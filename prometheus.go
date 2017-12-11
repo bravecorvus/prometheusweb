@@ -15,7 +15,6 @@ import (
 
 	"github.com/gilgameshskytrooper/prometheusweb/gpio"
 	"github.com/gilgameshskytrooper/prometheusweb/structs"
-	"github.com/gilgameshskytrooper/prometheusweb/nixie"
 	"github.com/gilgameshskytrooper/prometheusweb/utils"
 	"github.com/jacobsa/go-serial/serial"
 	"gopkg.in/go-playground/colors.v1"
@@ -166,23 +165,9 @@ func main() {
 	// if no previous process exists, KillShairportSync() automatically handles this.
 	utils.KillShairportSync()
 	shairportInstalled = utils.CheckShairportSyncInstalled()
-	fmt.Println("YOLO")
 	if shairportInstalled {
 		fmt.Println("shairport-sync", "-d")
 	}
-	options := serial.OpenOptions{
-		PortName:        nixie.FindArduino(),
-		BaudRate:        115200,
-		DataBits:        8,
-		StopBits:        1,
-		MinimumReadSize: 4,
-	}
-	// Open the port.
-	port, err := serial.Open(options)
-	if err != nil {
-		foundNixie = false
-	}
-
 	// Make sure to close it later.
 	defer port.Close()
 
@@ -191,25 +176,6 @@ func main() {
 	t := time.Now()
 	currenttime := t.Format("15:04")
 	c := cron.New()
-
-	// Send relevant time clock over serial USB
-	c.AddFunc("@every 1s", func() {
-		if foundNixie {
-			b := []byte(nixie.CurrentTimeAsString())
-			_, err := port.Write(b)
-			if err != nil {
-				log.Fatalf("port.Write: %v", err)
-			}
-		} else {
-			options.PortName = nixie.FindArduino()
-			if options.PortName != "" {
-				foundNixie = true
-			} else {
-				foundNixie = false
-			}
-		}
-
-	})
 
 	//Run the following once a minute
 	//Check all 4 alarms to see if the current time matches any configurations
