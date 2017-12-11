@@ -155,7 +155,6 @@ func main() {
 
 	// Ensure any previous incarnations of shairport-sync gets killed.
 	// if no previous process exists, KillShairportSync() automatically handles this.
-	utils.KillShairportSync()
 	shairportInstalled = utils.CheckShairportSyncInstalled()
 	if shairportInstalled {
 		fmt.Println("shairport-sync", "-d")

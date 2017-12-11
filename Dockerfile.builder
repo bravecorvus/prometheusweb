@@ -13,3 +13,4 @@ RUN go get github.com/gilgameshskytrooper/prometheusweb/
 WORKDIR /go/src/github.com/gilgameshskytrooper/prometheusweb/
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o prometheusweb .
+ENTRYPOINT ./prometheusweb

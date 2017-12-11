@@ -1,8 +1,8 @@
 FROM busybox:latest
-WORKDIR /
-COPY ca-certificates.crt /etc/ssl/certs
+WORKDIR prometheus
+COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY prometheusweb .
-COPY email .
-COPY public .
+COPY email email
+COPY public public
 EXPOSE 8080
-ENTRYPOINT ["/prometheusweb"]
+ENTRYPOINT ./prometheusweb
