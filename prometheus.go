@@ -140,12 +140,12 @@ func init() {
 	Alarm3.InitializeAlarms(jsondata, 2)
 	Alarm4.InitializeAlarms(jsondata, 3)
 
-	fmt.Println("YOLO")
 	files, errdir := ioutil.ReadDir(utils.Pwd()+"/public/assets")
 	if errdir != nil {
 		log.Println(errdir)
 	}
 
+	fmt.Println("YOLO")
 	Soundname = strings.TrimSpace(files[0].Name())
 	d1 := []byte(Soundname)
 	errrrrrrrrr := ioutil.WriteFile(utils.Pwd()+"/public/json/trackinfo", d1, 0644)
