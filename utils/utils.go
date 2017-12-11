@@ -287,18 +287,20 @@ func KillShairportSync() {
 
 // Function which checks whether shairport-sync is installed on the system
 func CheckShairportSyncInstalled() bool {
-	cmd := exec.Command("which", "shairport-sync")
-	var stdout bytes.Buffer
-	cmd.Stdout = &stdout
-	err := cmd.Run()
-	if err != nil {
-		fmt.Println("which shairport-sync command failed")
-	}
-	if strings.TrimSpace(stdout.String()) == "" {
-		return false
-	} else {
-		return true
-	}
+	fmt.Println("CheckShairportSyncInstalled")
+	return false
+	// cmd := exec.Command("which", "shairport-sync")
+	// var stdout bytes.Buffer
+	// cmd.Stdout = &stdout
+	// err := cmd.Run()
+	// if err != nil {
+		// fmt.Println("which shairport-sync command failed")
+	// }
+	// if strings.TrimSpace(stdout.String()) == "" {
+		// return false
+	// } else {
+		// return true
+	// }
 }
 
 // Function that writes persistent data about whether or not to use the custom cvlc commands (if you are using a custom soundcard, you probably do not want to use alsa instead of the default pulse audio)
