@@ -13,10 +13,9 @@ import (
 	"strings"
 	"time"
 
-	"./gpio"
-	"./nixie"
-	"./structs"
-	"./utils"
+	"github.com/gilgameshskytrooper/prometheusweb/gpio"
+	"github.com/gilgameshskytrooper/prometheusweb/nixie"
+	"github.com/gilgameshskytrooper/prometheusweb/utils"
 	"github.com/jacobsa/go-serial/serial"
 	"gopkg.in/go-playground/colors.v1"
 	"github.com/robfig/cron"
