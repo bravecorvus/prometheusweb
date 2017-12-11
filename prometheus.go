@@ -16,7 +16,6 @@ import (
 	"github.com/gilgameshskytrooper/prometheusweb/gpio"
 	"github.com/gilgameshskytrooper/prometheusweb/structs"
 	"github.com/gilgameshskytrooper/prometheusweb/utils"
-	"github.com/jacobsa/go-serial/serial"
 	"gopkg.in/go-playground/colors.v1"
 	"github.com/robfig/cron"
 
@@ -168,8 +167,6 @@ func main() {
 	if shairportInstalled {
 		fmt.Println("shairport-sync", "-d")
 	}
-	// Make sure to close it later.
-	defer port.Close()
 
 	// Initialize all 4 instances of alarm clocks
 	// Create function that updates clock once a minute (used to see if any times match up)
