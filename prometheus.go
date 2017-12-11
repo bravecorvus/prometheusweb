@@ -44,13 +44,6 @@ var (
 	CustomSoundCard bool
 )
 
-//General error handler: I guess it wasn't used nearly as much as should to warrant it's existance, but its here nonetheless
-func Errhandler(err error) {
-	if err != nil {
-		fmt.Println("ERROR")
-	}
-}
-
 //Function to check whether the alarm has been running for more than 10 minutes
 func OverTenMinutes(alarmtime string) bool {
 	year, month, day := time.Now().Date()
@@ -812,7 +805,7 @@ func main() {
 	http.HandleFunc("/time", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submit time failed")
 			os.Exit(1)
 		}
 		name := r.FormValue("name")
@@ -838,7 +831,7 @@ func main() {
 	http.HandleFunc("/sound", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submit sound failed")
 			os.Exit(1)
 		}
 		name := r.FormValue("name")
@@ -871,7 +864,7 @@ func main() {
 	http.HandleFunc("/vibration", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submit vibration failed")
 			os.Exit(1)
 		}
 		name := r.FormValue("name")
@@ -925,7 +918,7 @@ func main() {
 	http.HandleFunc("/enableemail", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submit enableemail failed")
 			os.Exit(1)
 		}
 		value := r.FormValue("value")
@@ -941,7 +934,7 @@ func main() {
 	http.HandleFunc("/customsoundcard", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submit  customsoundcard failed")
 			os.Exit(1)
 		}
 		value := r.FormValue("value")
@@ -957,7 +950,7 @@ func main() {
 	http.HandleFunc("/newemail", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submit newemail failed")
 			os.Exit(1)
 		}
 		value := r.FormValue("value")
@@ -967,7 +960,7 @@ func main() {
 	http.HandleFunc("/submitcolors", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submitcolors failed")
 			os.Exit(1)
 		}
 		value := r.FormValue("value")
@@ -983,7 +976,7 @@ func main() {
 	http.HandleFunc("/submitenableled", func(w http.ResponseWriter, r *http.Request) {
 		erawr := r.ParseForm()
 		if erawr != nil {
-			fmt.Println("ERROR")
+			fmt.Println("submitenabled failed")
 			os.Exit(1)
 		}
 		value := r.FormValue("value")

@@ -30,13 +30,13 @@ type Alarm struct {
 func GetRawJson(filepath string) []JsonAlarms {
 	raw, err1 := ioutil.ReadFile(filepath)
 	if err1 != nil {
-		fmt.Println("ERROR")
+		fmt.Println("ERROR GetRawJson ReadFile")
 		os.Exit(1)
 	}
 	var alarm []JsonAlarms
 	err2 := json.Unmarshal(raw, &alarm)
 	if err2 != nil {
-		fmt.Println("ERROR")
+		fmt.Println("ERROR GetRawJson Unmarshal")
 		os.Exit(1)
 	}
 	return alarm

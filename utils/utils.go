@@ -85,7 +85,7 @@ func ExampleExecute() {
 	str = b.String()
 	regex, err := regexp.Compile("\n")
 	if err != nil {
-		fmt.Println("ERROR")
+		fmt.Println("ERROR ExampleExecute()")
 	}
 	str = regex.ReplaceAllString(str, "")
 	fmt.Println(strings.TrimSpace(str))
